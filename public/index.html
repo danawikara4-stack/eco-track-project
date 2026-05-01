@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Eco-Track — Jejak Karbon Harianmu</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- BACKGROUND OVERLAY (berubah warna sesuai emisi) -->
+  <div class="bg-overlay" id="bgOverlay"></div>
+
+
+  <!-- ========== HEADER ========== -->
+  <header class="header">
+    <div class="header-inner">
+      <div class="logo">
+        <span class="logo-icon">🌿</span>
+        <span class="logo-text">Eco<strong>Track</strong></span>
+      </div>
+      <p class="header-sub">Lacak Jejak Karbon Harianmu</p>
+    </div>
+  </header>
+
+  <!-- ========== HERO ========== -->
+  <section class="hero">
+    <div class="hero-label">Mini Project — ITC UPNYK Web Dev</div>
+    <h1 class="hero-title">Seberapa Besar<br /><em>Jejakmu</em> Hari Ini?</h1>
+    <p class="hero-desc">
+      Setiap aktivitas harianmu — dari berkendara hingga menyalakan AC —
+      meninggalkan jejak karbon. Hitung dan sadari dampakmu sekarang.
+    </p>
+  </section>
+
+  <!-- ========== MAIN CONTENT ========== -->
+  <main class="main-container">
+
+    <!-- KALKULATOR CARD -->
+    <section class="card calculator-card">
+      <div class="card-header">
+        <span class="card-icon">🧮</span>
+        <h2>Kalkulator Emisi Karbon</h2>
+      </div>
+
+      <div class="form-grid">
+
+        <!-- TRANSPORTASI -->
+        <div class="form-group">
+          <label class="form-label">
+            <span class="label-icon">🚗</span>
+            Jenis Kendaraan
+          </label>
+          <div class="radio-group">
+            <label class="radio-option" id="radioMotor">
+              <input type="radio" name="kendaraan" value="motor" id="motor" checked />
+              <span class="radio-box">
+                <span class="radio-emoji">🛵</span>
+                Motor
+              </span>
+            </label>
+            <label class="radio-option" id="radioMobil">
+              <input type="radio" name="kendaraan" value="mobil" id="mobil" />
+              <span class="radio-box">
+                <span class="radio-emoji">🚙</span>
+                Mobil
+              </span>
+            </label>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="jarak">
+            <span class="label-icon">📍</span>
+            Jarak Tempuh (km)
+          </label>
+          <div class="input-wrapper">
+            <input
+              type="number"
+              id="jarak"
+              class="form-input"
+              placeholder="Contoh: 10"
+              min="0"
+              step="0.1"
+            />
+            <span class="input-unit">km</span>
+          </div>
+        </div>
+
+        <!-- ENERGI -->
+        <div class="form-group">
+          <label class="form-label" for="durasiAC">
+            <span class="label-icon">❄️</span>
+            Durasi Penggunaan AC (jam)
+          </label>
+          <div class="input-wrapper">
+            <input
+              type="number"
+              id="durasiAC"
+              class="form-input"
+              placeholder="Contoh: 3"
+              min="0"
+              step="0.5"
+            />
+            <span class="input-unit">jam</span>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="durasiLaptop">
+            <span class="label-icon">💻</span>
+            Durasi Penggunaan Laptop (jam)
+          </label>
+          <div class="input-wrapper">
+            <input
+              type="number"
+              id="durasiLaptop"
+              class="form-input"
+              placeholder="Contoh: 5"
+              min="0"
+              step="0.5"
+            />
+            <span class="input-unit">jam</span>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- TOMBOL -->
+      <div class="btn-row">
+        <button class="btn btn-primary" id="btnHitung">
+          <span>Hitung Emisi</span>
+        </button>
+        <button class="btn btn-secondary" id="btnReset">
+          <span>Reset</span>
+        </button>
+      </div>
+    </section>
+
+    <!-- HASIL SECTION (tersembunyi dulu) -->
+    <section class="card result-card hidden" id="resultCard">
+      <div class="card-header">
+        <span class="card-icon">📊</span>
+        <h2>Hasil Perhitungan</h2>
+      </div>
+
+      
+      <!-- Total emisi besar -->
+      <div class="total-display">
+        <div class="total-number" id="totalNumber">0.00</div>
+        <div class="total-unit">kg CO₂ / hari</div>
+        <div class="total-badge" id="totalBadge">—</div>
+      </div>
+
+      
+
+      <!-- PESAN KONTEKS -->
+      <div class="context-message" id="contextMessage"></div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <p>
+      <strong>Dana Wikara Antafalih</strong>
+      &nbsp;·&nbsp; ITC UPNYK Web Dev Mini Project
+    </p>
+  </footer>
+
+  <script src="main.js"></script>
+</body>
+</html>
