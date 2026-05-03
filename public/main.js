@@ -1,11 +1,6 @@
-// ============================================================
-//  ECO-TRACK — main.js
-//  Semua logika frontend ditulis di sini
-//  Komentar ditulis dalam Bahasa Indonesia agar mudah dipahami
-// ============================================================
 
 // ============================================================
-//  BAGIAN 1 — AMBIL SEMUA ELEMEN HTML YANG KITA BUTUHKAN
+//  BAGIAN 1 — AMBIL SEMUA ELEMEN HTML DIBUTUHKAN
 //  document.getElementById("...") = cari elemen berdasarkan id-nya
 // ============================================================
 
@@ -24,9 +19,13 @@ const totalNumber   = document.getElementById("totalNumber");
 const totalBadge    = document.getElementById("totalBadge");
 const contextMessage = document.getElementById("contextMessage");
 
-
-
-
+// Grafik batang
+const barKendaraan  = document.getElementById("barKendaraan");
+const barAC         = document.getElementById("barAC");
+const barLaptop     = document.getElementById("barLaptop");
+const valKendaraan  = document.getElementById("valKendaraan");
+const valAC         = document.getElementById("valAC");
+const valLaptop     = document.getElementById("valLaptop");
 
 
 // ============================================================
@@ -81,7 +80,7 @@ function hitungEmisi() {
 function tampilkanHasil() {
   const { total, emisiKendaraan, emisiAC, emisiLaptop } = hitungEmisi();
 
-  // --- 4a. Tampilkan angka total ---
+  // --- 4a. Tampilkan angka total [2 angka dibelakangn koma] ---
   totalNumber.textContent = total.toFixed(2);
 
   // --- 4b. Badge & warna berdasarkan tingkat emisi ---
@@ -116,6 +115,25 @@ function tampilkanHasil() {
     contextMessage.style.color = "#c1121f";
   }
 
+
+    // --- 4c. Grafik batang (A3) ---
+  // Hitung persentase masing-masing dari total (agar bar proporsional)
+  // Jika total = 0, semua bar tetap 0%
+  const maks = Math.max(total, 0.01); // hindari bagi dengan 0
+
+  const pctKendaraan = (emisiKendaraan / maks) * 100;
+  const pctAC        = (emisiAC        / maks) * 100;
+  const pctLaptop    = (emisiLaptop    / maks) * 100;
+
+  // Set lebar bar (width dalam %)
+  barKendaraan.style.width = pctKendaraan + "%";
+  barAC.style.width        = pctAC        + "%";
+  barLaptop.style.width    = pctLaptop    + "%";
+
+  // Tampilkan nilai di samping label
+  valKendaraan.textContent = emisiKendaraan.toFixed(2) + " kg";
+  valAC.textContent        = emisiAC.toFixed(2)        + " kg";
+  valLaptop.textContent    = emisiLaptop.toFixed(2)    + " kg";
 
   // --- 4d. Tampilkan card hasil (jika sebelumnya tersembunyi) ---
   resultCard.classList.remove("hidden");

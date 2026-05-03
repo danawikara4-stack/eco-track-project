@@ -1,0 +1,12 @@
+{
+  "name": "eco-track-project",
+  "version": "1.0.0",
+  "description": "Personal Carbon Footprint Tracker - ITC UPNYK Web Dev Mini Project",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js"
+  },
+  "dependencies": { 
+    "express": "^4.18.2"
+  }
+}

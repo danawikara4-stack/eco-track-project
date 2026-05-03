@@ -1,9 +1,3 @@
-/* ============================================================
-   ECO-TRACK — style.css
-   Aesthetic: Organic / Nature-forward — earthy tones, soft
-   textures, bold typography meets honest minimalism
-   ============================================================ */
-
 /* ---------- CSS VARIABLES ---------- */
 :root {
   --green-deep:   #1a3d2b;
@@ -445,6 +439,63 @@ body {
   color: var(--red-alert);
 }
 
+/* ---------- GRAFIK BATANG (A3) ---------- */
+.chart-section {
+  margin-bottom: 24px;
+}
+
+.section-title {
+  font-family: 'Syne', sans-serif;
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--green-deep);
+  margin-bottom: 16px;
+}
+
+.chart-container {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.chart-row {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.chart-label {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.85rem;
+  color: var(--text-mid);
+  font-weight: 500;
+}
+
+.chart-value {
+  font-weight: 700;
+  color: var(--green-deep);
+}
+
+.chart-bar-track {
+  height: 14px;
+  background: rgba(26, 61, 43, 0.08);
+  border-radius: 100px;
+  overflow: hidden;
+}
+
+.chart-bar {
+  height: 100%;
+  border-radius: 100px;
+  width: 0%;
+  transition: width 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.bar-kendaraan { background: linear-gradient(90deg, var(--green-mid), var(--green-light)); }
+.bar-ac        { background: linear-gradient(90deg, #4cc9f0, #90e0ef); }
+.bar-laptop    { background: linear-gradient(90deg, var(--yellow-warm), #ffd166); }
+
+
 
 /* ---------- PESAN KONTEKS ---------- */
 .context-message {
@@ -458,6 +509,7 @@ body {
   border-left: 3px solid var(--green-mid);
   transition: var(--transition);
 }
+
 
 
 /* ---------- FOOTER ---------- */
