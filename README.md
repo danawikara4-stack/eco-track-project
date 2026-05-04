@@ -12,8 +12,8 @@ Banyak orang gasadar aktivitas sehari-hari keliatan sepele — seperti menyalaka
 - [ ] B3. Smart Validation
 (Centang [x] yang berhasil diselesaikan)
 ## Cara Menjalankan Project [pakai live server vscode]
-1. Clone/extract project
-2. Jalankan `npm install` (jika ada backend)
-3. Jalankan dengan `node app.js` atau buka index.html
+1. instal extensions live server
+2. buka folder /public yang berisi html,css,js
+3. pada tampilan vs code klik kanan dan pilih "open with live server"
 ## Tantangan yang Dihadapi
-Tantangan terbesarnya adalah memahami gimana CSS dan JavaScript bisa bekerja sama secara real-time. Awalnya bingung kenapa background tidak berubah pas mengetik — ternyata karena pakai event change bukan input. Setelah ganti ke event input, perubahan langsung kedeteksi  tiap keystroke. Dari itu aku tau pemilihan jenis event listener berpengaruh ke experience pengguna.
+Tantangan terbesarnya memahami gimana CSS dan JavaScript bisa bekerja sama secara real-time. Awalnya bingung kenapa background tidak berubah pas mengetik — ternyata karena pakai event change bukan input. Setelah ganti ke event input, perubahan langsung kedeteksi  tiap keystroke. Dari itu aku tau pemilihan jenis event listener berpengaruh ke experience pengguna.
